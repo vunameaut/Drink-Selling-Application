@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "992940026954",
+    "firebase_url": "https://shoofee-2e0eb-default-rtdb.firebaseio.com",
+    "project_id": "shoofee-2e0eb",
+    "storage_bucket": "shoofee-2e0eb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992940026954:android:11e8fce0402cc557fd0ab3",
+        "android_client_info": {
+          "package_name": "com.pro.shopfee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2IZM3vVy4D83ia0G_IQtd0OlcFGm101Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
