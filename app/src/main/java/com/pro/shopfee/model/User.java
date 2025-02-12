@@ -6,7 +6,7 @@ public class User {
 
     private String email;
     private String password;
-    private boolean isAdmin;
+    private String role;
 
     public User() {}
 
@@ -31,12 +31,16 @@ public class User {
         this.password = password;
     }
 
-    public boolean isAdmin() {
-        return isAdmin;
+    public String getRole() {
+        return role;
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isAdmin() {
+        return "admin".equalsIgnoreCase(role);
     }
 
     public String toJSon() {
