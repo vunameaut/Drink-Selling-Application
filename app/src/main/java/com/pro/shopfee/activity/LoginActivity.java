@@ -129,6 +129,9 @@ public class LoginActivity extends BaseActivity {
                 User userObject = new User(email, role);
                 DataStoreManager.setUser(userObject);
 
+                // GỌI HÀM ĐỂ THEO DÕI ROLE THAY ĐỔI SAU ĐĂNG NHẬP
+                DataStoreManager.listenForRoleChanges(uid);
+
                 if ("admin".equals(role)) {
                     GlobalFunction.startActivity(this, AdminMainActivity.class);
                 } else {

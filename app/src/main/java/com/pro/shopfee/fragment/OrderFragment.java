@@ -2,6 +2,7 @@ package com.pro.shopfee.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,8 @@ public class OrderFragment extends Fragment {
 
         getDataArguments();
         initUi();
+        String role = DataStoreManager.getUser().getRole();
+        Log.d("CheckRole", "User Role: " + role);
         if (DataStoreManager.getUser().isAdmin()) {
             getListOrderAllUsersFromFirebase();
         } else {

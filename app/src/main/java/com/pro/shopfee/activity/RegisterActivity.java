@@ -122,12 +122,17 @@ public class RegisterActivity extends BaseActivity {
                         // Lưu email và role vào local storage nhưng không lưu password
                         User userObject = new User(email, "user");
                         DataStoreManager.setUser(userObject);
+
+                        // 🚀 Gọi để cập nhật role liên tục từ Firebase
+                        DataStoreManager.listenForRoleChanges(uid);
+
                         goToMainActivity();
                     } else {
                         showToastMessage(getString(R.string.msg_register_error));
                     }
                 });
     }
+
 
     private void goToMainActivity() {
         GlobalFunction.startActivity(this, MainActivity.class);
