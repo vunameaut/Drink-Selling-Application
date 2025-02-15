@@ -46,8 +46,8 @@ public class DrinkDetailActivity extends BaseActivity {
     private TextView tvRate;
     private TextView tvCountReview;
     private TextView tvVariantIce, tvVariantHot;
-    private TextView tvSizeRegular, tvSizeMedium, tvSizeLarge;
-    private TextView tvSugarNormal, tvSugarLess;
+    private TextView tvSizeSmall, tvSizeMedium, tvSizeLarge, tvSizeXLarge;
+    private TextView tvSugar100, tvSugar70, tvSugar50, tvSugar30, tvSugar0;
     private TextView tvIceNormal, tvIceLess;
     private RecyclerView rcvTopping;
     private EditText edtNotes;
@@ -58,8 +58,8 @@ public class DrinkDetailActivity extends BaseActivity {
     private Drink mDrinkOld;
     private Drink mDrink;
     private String currentVariant = Topping.VARIANT_ICE;
-    private String currentSize = Topping.SIZE_REGULAR;
-    private String currentSugar = Topping.SUGAR_NORMAL;
+    private String currentSize = Topping.SIZE_SMALL;
+    private String currentSugar = Topping.SUGAR_100;
     private String currentIce = Topping.ICE_NORMAL;
     private List<Topping> listTopping;
     private ToppingAdapter toppingAdapter;
@@ -104,11 +104,15 @@ public class DrinkDetailActivity extends BaseActivity {
         tvRate = findViewById(R.id.tv_rate);
         tvVariantIce = findViewById(R.id.tv_variant_ice);
         tvVariantHot = findViewById(R.id.tv_variant_hot);
-        tvSizeRegular = findViewById(R.id.tv_size_regular);
+        tvSizeSmall = findViewById(R.id.tv_size_small);
         tvSizeMedium = findViewById(R.id.tv_size_medium);
         tvSizeLarge = findViewById(R.id.tv_size_large);
-        tvSugarNormal = findViewById(R.id.tv_sugar_normal);
-        tvSugarLess = findViewById(R.id.tv_sugar_less);
+        tvSizeXLarge = findViewById(R.id.tv_size_xlarge);
+        tvSugar100 = findViewById(R.id.tv_sugar_100);
+        tvSugar70 = findViewById(R.id.tv_sugar_70);
+        tvSugar50 = findViewById(R.id.tv_sugar_50);
+        tvSugar30 = findViewById(R.id.tv_sugar_30);
+        tvSugar0 = findViewById(R.id.tv_sugar_0);
         tvIceNormal = findViewById(R.id.tv_ice_normal);
         tvIceLess = findViewById(R.id.tv_ice_less);
         rcvTopping = findViewById(R.id.rcv_topping);
@@ -180,8 +184,8 @@ public class DrinkDetailActivity extends BaseActivity {
             edtNotes.setText(mDrinkOld.getNote());
         } else {
             setValueToppingVariant(Topping.VARIANT_ICE);
-            setValueToppingSize(Topping.SIZE_REGULAR);
-            setValueToppingSugar(Topping.SUGAR_NORMAL);
+            setValueToppingSize(Topping.SIZE_SMALL);
+            setValueToppingSugar(Topping.SUGAR_100);
             setValueToppingIce(Topping.ICE_NORMAL);
         }
     }
@@ -217,9 +221,9 @@ public class DrinkDetailActivity extends BaseActivity {
             }
         });
 
-        tvSizeRegular.setOnClickListener(v -> {
-            if (!Topping.SIZE_REGULAR.equals(currentSize)) {
-                setValueToppingSize(Topping.SIZE_REGULAR);
+        tvSizeSmall.setOnClickListener(v -> {
+            if (!Topping.SIZE_SMALL.equals(currentSize)) {
+                setValueToppingSize(Topping.SIZE_SMALL);
             }
         });
 
@@ -235,15 +239,39 @@ public class DrinkDetailActivity extends BaseActivity {
             }
         });
 
-        tvSugarNormal.setOnClickListener(v -> {
-            if (!Topping.SUGAR_NORMAL.equals(currentSugar)) {
-                setValueToppingSugar(Topping.SUGAR_NORMAL);
+        tvSizeXLarge.setOnClickListener(v -> {
+            if (!Topping.SIZE_XLARGE.equals(currentSize)) {
+                setValueToppingSize(Topping.SIZE_XLARGE);
             }
         });
 
-        tvSugarLess.setOnClickListener(v -> {
-            if (!Topping.SUGAR_LESS.equals(currentSugar)) {
-                setValueToppingSugar(Topping.SUGAR_LESS);
+        tvSugar100.setOnClickListener(v -> {
+            if (!Topping.SUGAR_100.equals(currentSugar)) {
+                setValueToppingSugar(Topping.SUGAR_100);
+            }
+        });
+
+        tvSugar70.setOnClickListener(v -> {
+            if (!Topping.SUGAR_70.equals(currentSugar)) {
+                setValueToppingSugar(Topping.SUGAR_70);
+            }
+        });
+
+        tvSugar50.setOnClickListener(v -> {
+            if (!Topping.SUGAR_50.equals(currentSugar)) {
+                setValueToppingSugar(Topping.SUGAR_50);
+            }
+        });
+
+        tvSugar30.setOnClickListener(v -> {
+            if (!Topping.SUGAR_30.equals(currentSugar)) {
+                setValueToppingSugar(Topping.SUGAR_30);
+            }
+        });
+
+        tvSugar0.setOnClickListener(v -> {
+            if (!Topping.SUGAR_0.equals(currentSugar)) {
+                setValueToppingSugar(Topping.SUGAR_0);
             }
         });
 
@@ -317,38 +345,56 @@ public class DrinkDetailActivity extends BaseActivity {
     private void setValueToppingSize(String type) {
         currentSize = type;
         switch (type) {
-            case Topping.SIZE_REGULAR:
-                tvSizeRegular.setBackgroundResource(R.drawable.bg_main_corner_6);
-                tvSizeRegular.setTextColor(ContextCompat.getColor(this, R.color.white));
+            case Topping.SIZE_SMALL:
+                tvSizeSmall.setBackgroundResource(R.drawable.bg_main_corner_6);
+                tvSizeSmall.setTextColor(ContextCompat.getColor(this, R.color.white));
                 tvSizeMedium.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
                 tvSizeMedium.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
                 tvSizeLarge.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
                 tvSizeLarge.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSizeXLarge.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSizeXLarge.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
-                sizeText = getString(R.string.label_size) + " " + tvSizeRegular.getText().toString();
+                sizeText = getString(R.string.label_size) + " " + tvSizeSmall.getText().toString();
                 break;
 
             case Topping.SIZE_MEDIUM:
-                tvSizeRegular.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
-                tvSizeRegular.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSizeSmall.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSizeSmall.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
                 tvSizeMedium.setBackgroundResource(R.drawable.bg_main_corner_6);
                 tvSizeMedium.setTextColor(ContextCompat.getColor(this, R.color.white));
                 tvSizeLarge.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
                 tvSizeLarge.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSizeXLarge.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSizeXLarge.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
                 sizeText = getString(R.string.label_size) + " " + tvSizeMedium.getText().toString();
                 break;
 
             case Topping.SIZE_LARGE:
-                tvSizeRegular.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
-                tvSizeRegular.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSizeSmall.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSizeSmall.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
                 tvSizeMedium.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
                 tvSizeMedium.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
                 tvSizeLarge.setBackgroundResource(R.drawable.bg_main_corner_6);
                 tvSizeLarge.setTextColor(ContextCompat.getColor(this, R.color.white));
+                tvSizeXLarge.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSizeXLarge.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
-                sizeText = tvSizeLarge.getText().toString() + " "
-                        + getString(R.string.label_size);
+                sizeText = getString(R.string.label_size) + " " + tvSizeLarge.getText().toString();
+                break;
+
+            case Topping.SIZE_XLARGE:
+                tvSizeSmall.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSizeSmall.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSizeMedium.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSizeMedium.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSizeLarge.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSizeLarge.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSizeXLarge.setBackgroundResource(R.drawable.bg_main_corner_6);
+                tvSizeXLarge.setTextColor(ContextCompat.getColor(this, R.color.white));
+
+                sizeText = getString(R.string.label_size) + " " + tvSizeXLarge.getText().toString();
                 break;
         }
     }
@@ -356,23 +402,83 @@ public class DrinkDetailActivity extends BaseActivity {
     private void setValueToppingSugar(String type) {
         currentSugar = type;
         switch (type) {
-            case Topping.SUGAR_NORMAL:
-                tvSugarNormal.setBackgroundResource(R.drawable.bg_main_corner_6);
-                tvSugarNormal.setTextColor(ContextCompat.getColor(this, R.color.white));
-                tvSugarLess.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
-                tvSugarLess.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+            case Topping.SUGAR_100:
+                tvSugar100.setBackgroundResource(R.drawable.bg_main_corner_6);
+                tvSugar100.setTextColor(ContextCompat.getColor(this, R.color.white));
+                tvSugar70.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar70.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar50.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar50.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar30.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar30.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar0.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar0.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
-                sugarText = tvSugarNormal.getText().toString() + " "
+                sugarText = tvSugar100.getText().toString() + " "
                         + getString(R.string.label_sugar);
                 break;
 
-            case Topping.SUGAR_LESS:
-                tvSugarNormal.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
-                tvSugarNormal.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-                tvSugarLess.setBackgroundResource(R.drawable.bg_main_corner_6);
-                tvSugarLess.setTextColor(ContextCompat.getColor(this, R.color.white));
+            case Topping.SUGAR_70:
+                tvSugar100.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar100.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar70.setBackgroundResource(R.drawable.bg_main_corner_6);
+                tvSugar70.setTextColor(ContextCompat.getColor(this, R.color.white));
+                tvSugar50.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar50.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar30.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar30.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar0.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar0.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
-                sugarText = tvSugarLess.getText().toString() + " "
+                sugarText = tvSugar70.getText().toString() + " "
+                        + getString(R.string.label_sugar);
+                break;
+
+            case Topping.SUGAR_50:
+                tvSugar100.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar100.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar70.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar70.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar50.setBackgroundResource(R.drawable.bg_main_corner_6);
+                tvSugar50.setTextColor(ContextCompat.getColor(this, R.color.white));
+                tvSugar30.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar30.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar0.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar0.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+
+                sugarText = tvSugar50.getText().toString() + " "
+                        + getString(R.string.label_sugar);
+                break;
+
+            case Topping.SUGAR_30:
+                tvSugar100.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar100.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar70.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar70.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar50.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar50.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar30.setBackgroundResource(R.drawable.bg_main_corner_6);
+                tvSugar30.setTextColor(ContextCompat.getColor(this, R.color.white));
+                tvSugar0.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar0.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+
+                sugarText = tvSugar30.getText().toString() + " "
+                        + getString(R.string.label_sugar);
+                break;
+
+            case Topping.SUGAR_0:
+                tvSugar100.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar100.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar70.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar70.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar50.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar50.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar30.setBackgroundResource(R.drawable.bg_white_corner_6_border_main);
+                tvSugar30.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+                tvSugar0.setBackgroundResource(R.drawable.bg_main_corner_6);
+                tvSugar0.setTextColor(ContextCompat.getColor(this, R.color.white));
+
+                sugarText = tvSugar0.getText().toString() + " "
                         + getString(R.string.label_sugar);
                 break;
         }
