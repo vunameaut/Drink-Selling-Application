@@ -22,8 +22,7 @@ import java.util.List;
 public class ContactActivity extends BaseActivity {
 
 
-    private TextView tvAboutUsTitle, tvAboutUsContent, tvAboutUsWebsite;
-    private LinearLayout layoutWebsite;
+    private TextView tvAboutUsTitle, tvAboutUsContent;
     private RecyclerView rcvData;
 
     private ContactAdapter mContactAdapter;
@@ -36,7 +35,6 @@ public class ContactActivity extends BaseActivity {
         initToolbar();
         initUi();
         initData();
-        initListener();
     }
 
     private void initToolbar() {
@@ -49,16 +47,12 @@ public class ContactActivity extends BaseActivity {
     private void initUi() {
         tvAboutUsTitle = findViewById(R.id.tv_about_us_title);
         tvAboutUsContent = findViewById(R.id.tv_about_us_content);
-        tvAboutUsWebsite = findViewById(R.id.tv_about_us_website);
-        layoutWebsite = findViewById(R.id.layout_website);
         rcvData = findViewById(R.id.rcvData);
     }
 
     private void initData() {
         tvAboutUsTitle.setText(AboutUsConfig.ABOUT_US_TITLE);
         tvAboutUsContent.setText(AboutUsConfig.ABOUT_US_CONTENT);
-        tvAboutUsWebsite.setText(AboutUsConfig.ABOUT_US_WEBSITE_TITLE);
-
         mContactAdapter = new ContactAdapter(this, getListContact(),
                 () -> GlobalFunction.callPhoneNumber(this));
         GridLayoutManager layoutManager = new GridLayoutManager(this, 3);
@@ -68,19 +62,13 @@ public class ContactActivity extends BaseActivity {
         rcvData.setAdapter(mContactAdapter);
     }
 
-    private void initListener() {
-        layoutWebsite.setOnClickListener(view
-                -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(AboutUsConfig.WEBSITE))));
-    }
+
 
     public List<Contact> getListContact() {
         List<Contact> contactArrayList = new ArrayList<>();
         contactArrayList.add(new Contact(Contact.FACEBOOK, R.drawable.ic_facebook));
         contactArrayList.add(new Contact(Contact.HOTLINE, R.drawable.ic_hotline));
         contactArrayList.add(new Contact(Contact.GMAIL, R.drawable.ic_gmail));
-        contactArrayList.add(new Contact(Contact.SKYPE, R.drawable.ic_skype));
-        contactArrayList.add(new Contact(Contact.YOUTUBE, R.drawable.ic_youtube));
-        contactArrayList.add(new Contact(Contact.ZALO, R.drawable.ic_zalo));
 
         return contactArrayList;
     }

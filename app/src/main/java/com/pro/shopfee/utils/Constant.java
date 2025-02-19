@@ -19,7 +19,7 @@ public class Constant {
     public static final int TYPE_BANK = 3;
     public static final int TYPE_ZALO_PAY = 4;
 
-    public static final String ADMIN_EMAIL_FORMAT = "@admin.com";
+
 
     public static final String KEY_INTENT_VOUCHER_OBJECT = "voucher_object";
     public static final String KEY_INTENT_TOPPING_OBJECT = "color_object";

@@ -63,31 +63,9 @@ public class GlobalFunction {
         context.startActivity(Intent.createChooser(emailIntent, "Send Email"));
     }
 
-    public static void onClickOpenSkype(Context context) {
-        try {
-            Uri skypeUri = Uri.parse("skype:" + AboutUsConfig.SKYPE_ID + "?chat");
-            context.getPackageManager().getPackageInfo("com.skype.raider", 0);
-            Intent skypeIntent = new Intent(Intent.ACTION_VIEW, skypeUri);
-            skypeIntent.setComponent(new ComponentName("com.skype.raider", "com.skype.raider.Main"));
-            context.startActivity(skypeIntent);
-        } catch (Exception e) {
-            openSkypeWebview(context);
-        }
-    }
 
-    private static void openSkypeWebview(Context context) {
-        try {
-            context.startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("skype:" + AboutUsConfig.SKYPE_ID + "?chat")));
-        } catch (Exception exception) {
-            String skypePackageName = "com.skype.raider";
-            try {
-                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + skypePackageName)));
-            } catch (android.content.ActivityNotFoundException anfe) {
-                context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + skypePackageName)));
-            }
-        }
-    }
+
+
 
     public static void onClickOpenFacebook(Context context) {
         Intent intent;
@@ -105,13 +83,7 @@ public class GlobalFunction {
         context.startActivity(intent);
     }
 
-    public static void onClickOpenYoutubeChannel(Context context) {
-        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(AboutUsConfig.LINK_YOUTUBE)));
-    }
 
-    public static void onClickOpenZalo(Context context) {
-        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(AboutUsConfig.ZALO_LINK)));
-    }
 
     public static void callPhoneNumber(Activity activity) {
         try {

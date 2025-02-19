@@ -1,18 +1,15 @@
 package com.pro.shopfee.constant;
 
 public interface AboutUsConfig {
-    String ABOUT_US_TITLE = "TinCoder";
-    String ABOUT_US_CONTENT = "Provides Android, iOS, Web Source Codes and Development Services. " +
-            "Highly Committed to Quality Products and Excellent Services.";
-    String ABOUT_US_SLOGAN = "Highly committed to quality products & excellent services";
-    String ABOUT_US_WEBSITE_TITLE = "Website TinCoder";
+    String ABOUT_US_TITLE = "LeThinh";
+    String ABOUT_US_CONTENT = "Welcome to [the name of the restaurant], which brings delicious glasses of water and great relaxing space. We are committed to using fresh, carefully prepared ingredients to create quality drinks, meeting all customers' interests.\n" +
+            "\n" +
+            "Not only is a pub, [the name of the shop] is also an ideal destination to meet friends, work or enjoy relaxing moments. With a friendly staff and dedicated service, we wish to bring you the best experience";
+    String ABOUT_US_SLOGAN = "Rolly taste - dedicated service.";
 
     String PAGE_FACEBOOK = "fb://page/tincoder";
-    String LINK_FACEBOOK = "https://www.facebook.com/tincoder";
-    String LINK_YOUTUBE = "https://www.youtube.com/channel/UCu3DXfXYgygIYXN8TduNcNQ";
-    String PHONE_NUMBER = "+84392229676";
-    String GMAIL = "mixproduction29932@gmail.com";
-    String SKYPE_ID = "dangtin29932";
-    String ZALO_LINK = "https://zalo.me/0392229676";
-    String WEBSITE = "https://alabaster-drop-b52.notion.site/TinCoder-Full-Source-Code-Android-c1f9d9d224004932823b6d5061c80dbc";
+    String LINK_FACEBOOK = "https://www.facebook.com/profile.php?id=100014750203760&rdid=vPjXlxdIkf2KH3BD&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14yqTKevvj%2F#";
+    String PHONE_NUMBER = "+84815292470";
+    String GMAIL = "thinhle292470@gmail.com";
+
 }

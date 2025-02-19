@@ -88,17 +88,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
                     GlobalFunction.onClickOpenGmail(context);
                     break;
 
-                case Contact.SKYPE:
-                    GlobalFunction.onClickOpenSkype(context);
-                    break;
-
-                case Contact.YOUTUBE:
-                    GlobalFunction.onClickOpenYoutubeChannel(context);
-                    break;
-
-                case Contact.ZALO:
-                    GlobalFunction.onClickOpenZalo(context);
-                    break;
             }
         });
     }

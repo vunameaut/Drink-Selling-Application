@@ -60,16 +60,14 @@ public class DataStoreManager {
                     String email = snapshot.child("email").getValue(String.class);
                     String role = snapshot.child("role").getValue(String.class);
 
-                    Log.d("UserRole", "Dữ liệu lấy từ Firebase - Email: " + email + " | Role: " + role);
+                    //Log.d("UserRole", "Dữ liệu lấy từ Firebase - Email: " + email + " | Role: " + role);
 
                     User user = new User();
                     user.setEmail(email);
                     user.setRole(role);
 
                     setUser(user); // Cập nhật vào SharedPreferences
-                } else {
-                    Log.d("UserRole", "Không tìm thấy dữ liệu user trên Firebase!");
-                }
+                } 
             }
 
             @Override
