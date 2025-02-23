@@ -61,17 +61,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
                 holder.tvContact.setText(context.getString(R.string.label_gmail));
                 break;
 
-            case Contact.SKYPE:
-                holder.tvContact.setText(context.getString(R.string.label_skype));
-                break;
-
-            case Contact.YOUTUBE:
-                holder.tvContact.setText(context.getString(R.string.label_youtube));
-                break;
-
-            case Contact.ZALO:
-                holder.tvContact.setText(context.getString(R.string.label_zalo));
-                break;
+            
         }
 
         holder.layoutItem.setOnClickListener(v -> {
